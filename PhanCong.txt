@@ -1,0 +1,12 @@
+Trinh 
+xuất trang chủ sản phẩm
+tìm kiếm 
+sắp xếp phân trang 
+Chi tiết sản phẩm 
+Thành , Phát
+Tui với ông chung role 
+login , register 
+(Khi làm 2 cái này nó sẽ đi kèm 
++ phân quyền , 
++trang Admin (Crud user , product , order) 
++Đơn hang ,giỏ hàng
