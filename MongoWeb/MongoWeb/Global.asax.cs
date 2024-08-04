@@ -1,3 +1,10 @@
+﻿using MongoDB.Driver;
+using MongoWeb.Controllers;
+using MongoWeb.Models;
+using MongoWeb.Repositores;
+using MongoWeb.Services;
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +20,56 @@ namespace MongoWeb
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            // Khởi tạo kết nối MongoDB
+            var client = new MongoClient("mongodb://localhost:27017/");
+            var database = client.GetDatabase("Cua_Hang_My_Pham");
+            var todoCollection = database.GetCollection<Products>("Products");
+
+            //// Khởi tạo TodoSqlRepository cho SQL Server
+            //string sqlServerConnectionString = "Server=LAPTOP-FD3P69GF;Database=TODO;Integrated Security=True;";
+            //ITodoRepository todoRepository = new TodoSqlRepository(sqlServerConnectionString);
+
+            //// Khởi tạo TodoFileRepository
+            //string csvFilePath = "E:\\ChuBieu\\cstodo\\cstodo\\todo_task.todos.csv";
+            //ITodoRepository csvRepository = new TodoFileRepository(csvFilePath);
+
+            // Thiết lập Dependency Resolver
+            DependencyResolver.SetResolver(new MyDependencyResolver(todoCollection));
+        }
+        public class MyDependencyResolver : IDependencyResolver
+        {
+            private IMongoCollection<Products> todoCollection;
+            //private ITodoRepository todoRepository;
+            //private ITodoRepository csvRepository;
+
+            public MyDependencyResolver(IMongoCollection<Products> todoCollection)
+            {
+                this.todoCollection = todoCollection;
+                //this.todoRepository = todoRepository;
+                //this.csvRepository = csvRepository;
+            }
+
+            public object GetService(Type serviceType)
+            {
+                if (serviceType == typeof(HomeController))
+                {
+                    var repository = new TodoRepository(todoCollection);
+                    //var addTodo = new AddTodo(repository);
+                    //var getAllTodos = new GetAllTodos(repository);
+                    //var repository = csvRepository;
+                    var addTodo = new AddTodo(repository);
+                    var getAllTodos = new GetAll(repository);
+                    //return new TodoController(repository);
+                    return new HomeController(addTodo, getAllTodos);
+                }
+                return null;
+            }
+
+            public IEnumerable<object> GetServices(Type serviceType)
+            {
+                return Enumerable.Empty<object>();
+            }
         }
     }
 }

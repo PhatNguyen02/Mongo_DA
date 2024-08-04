@@ -1,0 +1,28 @@
+{
+  "_id": {
+    "$oid": "66a9da9418505c67efe10bd8"
+  },
+  "product_id": "sp01",
+  "product_name": "Kem duong",
+  "brandName": "vasilin",
+  "category": "Makeup",
+  "price": 350000,
+  "productImage": [
+    "https://www.guardian.com.vn/media/catalog/product/cache/30b2b44eba57cd45fd3ef9287600968e/t/h/thumbnail_3025057_zeo0ahpxo9rptgjk.jpg",
+    "https://www.guardian.com.vn/media/catalog/product/cache/30b2b44eba57cd45fd3ef9287600968e/8/9/895ccbd4956d5cf7aeb0a79ca8dcd867af0fb8da6f89604360e869568a8d8dab.jpeg"
+  ],
+  "description": "Không có gì",
+  "reviews": [
+    {
+      "user": "Phát",
+      "rating": 5,
+      "comment": "Great eyeliner!"
+    },
+    {
+      "user": "Trinh",
+      "rating": 1,
+      "comment": "So bad!"
+    }
+  ],
+  "countInstock": 30
+}
