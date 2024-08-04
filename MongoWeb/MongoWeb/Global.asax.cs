@@ -28,6 +28,8 @@ namespace MongoWeb
             var todoCollection = database.GetCollection<Products>("Products");
             var userCollection = database.GetCollection<Users>("Users");
 
+
+            var userCollection = database.GetCollection<Users>("Users");
             //// Khởi tạo TodoSqlRepository cho SQL Server
             //string sqlServerConnectionString = "Server=LAPTOP-FD3P69GF;Database=TODO;Integrated Security=True;";
             //ITodoRepository todoRepository = new TodoSqlRepository(sqlServerConnectionString);
@@ -38,6 +40,7 @@ namespace MongoWeb
 
             // Thiết lập Dependency Resolver
             DependencyResolver.SetResolver(new MyDependencyResolver(todoCollection, userCollection));
+
         }
         public class MyDependencyResolver : IDependencyResolver
         {
@@ -54,11 +57,14 @@ namespace MongoWeb
                 //this.csvRepository = csvRepository;
             }
 
+            
+
             public object GetService(Type serviceType)
             {
                 if (serviceType == typeof(HomeController))
                 {
                     var repository = new TodoRepository(todoCollection, userCollection);
+                    //var userrepository = new TodoRepository(userCollection);
                     //var addTodo = new AddTodo(repository);
                     //var getAllTodos = new GetAllTodos(repository);
                     //var repository = csvRepository;

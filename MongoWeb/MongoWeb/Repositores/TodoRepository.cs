@@ -5,7 +5,10 @@ using System.Linq;
 using System.Web;
 using MongoWeb.Models;
 using MongoDB.Bson;
+<<<<<<< HEAD
+=======
 
+>>>>>>> f49b9df2830c565ddf9b7ef3127a06776cedad42
 
 namespace MongoWeb.Repositores
 {
@@ -13,6 +16,10 @@ namespace MongoWeb.Repositores
     {
         public readonly IMongoCollection<Products> collection;
         public readonly IMongoCollection<Users> collectionUser;
+<<<<<<< HEAD
+
+=======
+>>>>>>> f49b9df2830c565ddf9b7ef3127a06776cedad42
         public TodoRepository(IMongoCollection<Products> database, IMongoCollection<Users> userCollection)
         {
             collection = database;
@@ -26,6 +33,9 @@ namespace MongoWeb.Repositores
         {
             return collection.Find(_ => true).ToList();
         }
+<<<<<<< HEAD
+        // User Methods
+=======
 
         public List<string> GetProductCategories()
         {
@@ -66,6 +76,7 @@ namespace MongoWeb.Repositores
             }
 
         }
+>>>>>>> f49b9df2830c565ddf9b7ef3127a06776cedad42
         public void AddUser(Users user)
         {
             collectionUser.InsertOne(user);
@@ -89,7 +100,15 @@ namespace MongoWeb.Repositores
         public void DeleteUser(string id)
         {
             collectionUser.DeleteOne(user => user.Id == new ObjectId(id));
+<<<<<<< HEAD
+        }
+=======
 
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> f49b9df2830c565ddf9b7ef3127a06776cedad42
+>>>>>>> 203ded754bffc4fe8aac2ad43621ecfd573491cc
     }
 }
