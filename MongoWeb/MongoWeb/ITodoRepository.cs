@@ -12,4 +12,5 @@ namespace MongoWeb
         void Add(Products products);
         List<Products> GetAll();
     }
+
 }
