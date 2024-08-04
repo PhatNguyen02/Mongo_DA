@@ -26,6 +26,8 @@ namespace MongoWeb
             var database = client.GetDatabase("Cua_Hang_My_Pham");
             var todoCollection = database.GetCollection<Products>("Products");
 
+
+            var userCollection = database.GetCollection<Users>("Users");
             //// Khởi tạo TodoSqlRepository cho SQL Server
             //string sqlServerConnectionString = "Server=LAPTOP-FD3P69GF;Database=TODO;Integrated Security=True;";
             //ITodoRepository todoRepository = new TodoSqlRepository(sqlServerConnectionString);
@@ -35,26 +37,32 @@ namespace MongoWeb
             //ITodoRepository csvRepository = new TodoFileRepository(csvFilePath);
 
             // Thiết lập Dependency Resolver
-            DependencyResolver.SetResolver(new MyDependencyResolver(todoCollection));
+            DependencyResolver.SetResolver(new MyDependencyResolver(todoCollection, userCollection));
+
         }
         public class MyDependencyResolver : IDependencyResolver
         {
             private IMongoCollection<Products> todoCollection;
+            private IMongoCollection<Users> userCollection;
             //private ITodoRepository todoRepository;
             //private ITodoRepository csvRepository;
 
-            public MyDependencyResolver(IMongoCollection<Products> todoCollection)
+            public MyDependencyResolver(IMongoCollection<Products> todoCollection, IMongoCollection<Users> userCollection)
             {
                 this.todoCollection = todoCollection;
+                this.userCollection = userCollection;
                 //this.todoRepository = todoRepository;
                 //this.csvRepository = csvRepository;
             }
+
+            
 
             public object GetService(Type serviceType)
             {
                 if (serviceType == typeof(HomeController))
                 {
-                    var repository = new TodoRepository(todoCollection);
+                    var repository = new TodoRepository(todoCollection, userCollection);
+                    //var userrepository = new TodoRepository(userCollection);
                     //var addTodo = new AddTodo(repository);
                     //var getAllTodos = new GetAllTodos(repository);
                     //var repository = csvRepository;
