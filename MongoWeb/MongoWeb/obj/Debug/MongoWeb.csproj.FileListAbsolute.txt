@@ -303,3 +303,8 @@ E:\Mongo_DA\MongoWeb\MongoWeb\bin\PagedList.dll
 E:\Mongo_DA\MongoWeb\MongoWeb\bin\X.PagedList.dll
 E:\Mongo_DA\MongoWeb\MongoWeb\bin\PagedList.xml
 E:\Mongo_DA\MongoWeb\MongoWeb\bin\PagedList.Core.pdb
+C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\PagedList.Core.dll
+C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\PagedList.dll
+C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\X.PagedList.dll
+C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\PagedList.xml
+C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\PagedList.Core.pdb

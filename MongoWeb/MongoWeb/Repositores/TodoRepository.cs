@@ -54,6 +54,9 @@ namespace MongoWeb.Repositores
             return collection.Find(filter).ToList();
 
 
+          
+
+        }
         public void Login(string gmail, string password)
         {
             var user = collectionUser.Find(u => u.Email == gmail && u.Password == password).FirstOrDefault();
@@ -61,7 +64,7 @@ namespace MongoWeb.Repositores
             {
                 throw new Exception("Invalid login credentials.");
             }
-            
+
         }
         public void AddUser(Users user)
         {
@@ -88,6 +91,5 @@ namespace MongoWeb.Repositores
             collectionUser.DeleteOne(user => user.Id == new ObjectId(id));
 
         }
-
     }
 }
