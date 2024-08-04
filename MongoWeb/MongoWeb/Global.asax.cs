@@ -23,7 +23,8 @@ namespace MongoWeb
 
             // Khởi tạo kết nối MongoDB
             var client = new MongoClient("mongodb://localhost:27017/");
-            var database = client.GetDatabase("Cua_Hang_My_Pham");
+            //var database = client.GetDatabase("Cua_Hang_My_Pham");
+            var database = client.GetDatabase("test");
             var todoCollection = database.GetCollection<Products>("Products");
 
             //// Khởi tạo TodoSqlRepository cho SQL Server

@@ -74,6 +74,12 @@
     <Reference Include="MongoDB.Libmongocrypt, Version=1.11.0.0, Culture=neutral, PublicKeyToken=94992a530f44e321, processorArchitecture=MSIL">
       <HintPath>..\packages\MongoDB.Libmongocrypt.1.11.0\lib\net472\MongoDB.Libmongocrypt.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Core.1.17.4\lib\net462\PagedList.Core.dll</HintPath>
+    </Reference>
     <Reference Include="SharpCompress, Version=0.30.1.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpCompress.0.30.1\lib\net461\SharpCompress.dll</HintPath>
     </Reference>
@@ -162,6 +168,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="X.PagedList, Version=10.0.3.0, Culture=neutral, PublicKeyToken=525ccaa9023f010c, processorArchitecture=MSIL">
+      <HintPath>..\packages\X.PagedList.10.0.3\lib\netstandard2.0\X.PagedList.dll</HintPath>
+    </Reference>
     <Reference Include="ZstdSharp, Version=0.7.3.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
       <HintPath>..\packages\ZstdSharp.Port.0.7.3\lib\net461\ZstdSharp.dll</HintPath>
     </Reference>
@@ -193,6 +202,164 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\animate.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\fancybox.min.css" />
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\ionicons.min.css" />
+    <Content Include="assets\css\lineIcons.css" />
+    <Content Include="assets\css\owl.video.play.html" />
+    <Content Include="assets\css\owlcarousel.min.css" />
+    <Content Include="assets\css\owltheme.min.css" />
+    <Content Include="assets\css\pagination.css" />
+    <Content Include="assets\css\range-slider.css" />
+    <Content Include="assets\css\simple-line-icons.css" />
+    <Content Include="assets\css\slicknav.css" />
+    <Content Include="assets\css\spacing.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\swiper.min.css" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="assets\fonts\ioniconsde33.svg" />
+    <Content Include="assets\fonts\Simple-Line-Iconsb26c.svg" />
+    <Content Include="assets\img\about\01.jpg" />
+    <Content Include="assets\img\blog\01.jpg" />
+    <Content Include="assets\img\blog\02.jpg" />
+    <Content Include="assets\img\blog\03.jpg" />
+    <Content Include="assets\img\blog\04.jpg" />
+    <Content Include="assets\img\blog\05.jpg" />
+    <Content Include="assets\img\blog\06.jpg" />
+    <Content Include="assets\img\blog\07.jpg" />
+    <Content Include="assets\img\blog\08.jpg" />
+    <Content Include="assets\img\blog\09.jpg" />
+    <Content Include="assets\img\blog\author1.png" />
+    <Content Include="assets\img\blog\author2.png" />
+    <Content Include="assets\img\blog\author3.png" />
+    <Content Include="assets\img\blog\s1.jpg" />
+    <Content Include="assets\img\blog\s2.jpg" />
+    <Content Include="assets\img\blog\s3.jpg" />
+    <Content Include="assets\img\blog\s4.jpg" />
+    <Content Include="assets\img\blog\single-01.jpg" />
+    <Content Include="assets\img\favicon.ico" />
+    <Content Include="assets\img\icons\arrow-down.png" />
+    <Content Include="assets\img\icons\call.png" />
+    <Content Include="assets\img\icons\cancel-white.png" />
+    <Content Include="assets\img\icons\f01.png" />
+    <Content Include="assets\img\icons\f02.png" />
+    <Content Include="assets\img\icons\f03.png" />
+    <Content Include="assets\img\icons\select-arrow.png" />
+    <Content Include="assets\img\logo-light.png" />
+    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\photos\bg-01.jpg" />
+    <Content Include="assets\img\photos\bg-02.jpg" />
+    <Content Include="assets\img\photos\divider-01.jpg" />
+    <Content Include="assets\img\photos\language-01.jpg" />
+    <Content Include="assets\img\photos\language-02.jpg" />
+    <Content Include="assets\img\photos\payment.png" />
+    <Content Include="assets\img\shape\01.png" />
+    <Content Include="assets\img\shape\02.png" />
+    <Content Include="assets\img\shop\01-h1.jpg" />
+    <Content Include="assets\img\shop\01.jpg" />
+    <Content Include="assets\img\shop\02-h1.jpg" />
+    <Content Include="assets\img\shop\02.jpg" />
+    <Content Include="assets\img\shop\03-h1.jpg" />
+    <Content Include="assets\img\shop\03.jpg" />
+    <Content Include="assets\img\shop\04-h1.jpg" />
+    <Content Include="assets\img\shop\04.jpg" />
+    <Content Include="assets\img\shop\05-h1.jpg" />
+    <Content Include="assets\img\shop\05.jpg" />
+    <Content Include="assets\img\shop\06.jpg" />
+    <Content Include="assets\img\shop\07-h1.jpg" />
+    <Content Include="assets\img\shop\07.jpg" />
+    <Content Include="assets\img\shop\08-h1.jpg" />
+    <Content Include="assets\img\shop\08.jpg" />
+    <Content Include="assets\img\shop\09.jpg" />
+    <Content Include="assets\img\shop\10-h1.jpg" />
+    <Content Include="assets\img\shop\10.jpg" />
+    <Content Include="assets\img\shop\11-h1.jpg" />
+    <Content Include="assets\img\shop\11.jpg" />
+    <Content Include="assets\img\shop\12-h1.jpg" />
+    <Content Include="assets\img\shop\12.jpg" />
+    <Content Include="assets\img\shop\13-h1.jpg" />
+    <Content Include="assets\img\shop\13.jpg" />
+    <Content Include="assets\img\shop\banner\01.jpg" />
+    <Content Include="assets\img\shop\banner\02.jpg" />
+    <Content Include="assets\img\shop\banner\03.jpg" />
+    <Content Include="assets\img\shop\banner\04.jpg" />
+    <Content Include="assets\img\shop\banner\05.jpg" />
+    <Content Include="assets\img\shop\banner\06.jpg" />
+    <Content Include="assets\img\shop\cart-01.jpg" />
+    <Content Include="assets\img\shop\cart-02.jpg" />
+    <Content Include="assets\img\shop\cart\01.jpg" />
+    <Content Include="assets\img\shop\cart\02.jpg" />
+    <Content Include="assets\img\shop\cart\local-shipping.png" />
+    <Content Include="assets\img\shop\cart\swap-horiz.png" />
+    <Content Include="assets\img\shop\cart\verified-user.png" />
+    <Content Include="assets\img\shop\category\01.jpg" />
+    <Content Include="assets\img\shop\category\02.jpg" />
+    <Content Include="assets\img\shop\category\03.jpg" />
+    <Content Include="assets\img\shop\category\04.jpg" />
+    <Content Include="assets\img\shop\category\07.jpg" />
+    <Content Include="assets\img\shop\category\08.jpg" />
+    <Content Include="assets\img\shop\category\09.jpg" />
+    <Content Include="assets\img\shop\category\10.jpg" />
+    <Content Include="assets\img\shop\category\11.jpg" />
+    <Content Include="assets\img\shop\product-brand-01.jpg" />
+    <Content Include="assets\img\shop\product-brand-02.jpg" />
+    <Content Include="assets\img\shop\product-single\01.jpg" />
+    <Content Include="assets\img\shop\product-single\02.jpg" />
+    <Content Include="assets\img\shop\product-single\03.jpg" />
+    <Content Include="assets\img\shop\product-single\04.jpg" />
+    <Content Include="assets\img\shop\product-single\05.jpg" />
+    <Content Include="assets\img\shop\product-single\06.jpg" />
+    <Content Include="assets\img\shop\product-single\07.jpg" />
+    <Content Include="assets\img\shop\product-single\08.jpg" />
+    <Content Include="assets\img\shop\product-single\09.jpg" />
+    <Content Include="assets\img\shop\product-single\10.jpg" />
+    <Content Include="assets\img\shop\product-single\11.jpg" />
+    <Content Include="assets\img\shop\product-single\12.jpg" />
+    <Content Include="assets\img\shop\product-single\nav-01.jpg" />
+    <Content Include="assets\img\shop\product-single\nav-02.jpg" />
+    <Content Include="assets\img\shop\product-single\nav-03.jpg" />
+    <Content Include="assets\img\shop\product-single\nav-04.jpg" />
+    <Content Include="assets\img\shop\product-single\nav-05.jpg" />
+    <Content Include="assets\img\shop\product-single\nav-06.jpg" />
+    <Content Include="assets\img\shop\product-single\nav-07.jpg" />
+    <Content Include="assets\img\shop\product-single\nav-08.jpg" />
+    <Content Include="assets\img\shop\product-single\nav-09.jpg" />
+    <Content Include="assets\img\shop\product-single\nav-10.jpg" />
+    <Content Include="assets\img\shop\product-single\nav-11.jpg" />
+    <Content Include="assets\img\shop\product-single\nav-12.jpg" />
+    <Content Include="assets\img\slider\slider-01.jpg" />
+    <Content Include="assets\img\slider\slider-02.jpg" />
+    <Content Include="assets\img\slider\slider-03.jpg" />
+    <Content Include="assets\img\slider\slider-04.jpg" />
+    <Content Include="assets\img\slider\slider-05.jpg" />
+    <Content Include="assets\img\slider\slider-06.jpg" />
+    <Content Include="assets\img\slider\slider-07.jpg" />
+    <Content Include="assets\img\slider\slider-08.jpg" />
+    <Content Include="assets\img\slider\slider-09.jpg" />
+    <Content Include="assets\img\team\01.jpg" />
+    <Content Include="assets\img\team\02.jpg" />
+    <Content Include="assets\img\team\03.jpg" />
+    <Content Include="assets\img\team\04.jpg" />
+    <Content Include="assets\img\testimonial\01.png" />
+    <Content Include="assets\img\testimonial\02.png" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\countdown.js" />
+    <Content Include="assets\js\custom.js" />
+    <Content Include="assets\js\fancybox.min.js" />
+    <Content Include="assets\js\jquery-main.js" />
+    <Content Include="assets\js\jquery-match-height.min.js" />
+    <Content Include="assets\js\jquery-migrate.js" />
+    <Content Include="assets\js\jquery-zoom.min.js" />
+    <Content Include="assets\js\jquery.appear.js" />
+    <Content Include="assets\js\modernizr.js" />
+    <Content Include="assets\js\owlcarousel.min.js" />
+    <Content Include="assets\js\popper.min.js" />
+    <Content Include="assets\js\range-slider.js" />
+    <Content Include="assets\js\slicknav.js" />
+    <Content Include="assets\js\swiper.min.js" />
+    <Content Include="assets\js\waypoints.js" />
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\fancybox.min.css" />
@@ -247,9 +414,25 @@
     <Content Include="Views\web.config" />
     <Content Include="libmongocrypt.so" />
     <Content Include="libmongocrypt.dylib" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="assets\fonts\ioniconsde33.eot" />
+    <Content Include="assets\fonts\ioniconsde33.ttf" />
+    <Content Include="assets\fonts\ioniconsde33.woff" />
+    <Content Include="assets\fonts\ioniconsde33.woff2" />
+    <Content Include="assets\fonts\la-brands-400.woff2" />
+    <Content Include="assets\fonts\la-solid-900.woff2" />
+    <Content Include="assets\fonts\Simple-Line-Iconsb26c.eot" />
+    <Content Include="assets\fonts\Simple-Line-Iconsb26c.ttf" />
+    <Content Include="assets\fonts\Simple-Line-Iconsb26c.woff" />
+    <Content Include="assets\fonts\Simple-Line-Iconsb26c.woff2" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
