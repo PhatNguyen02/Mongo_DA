@@ -1,8 +1,41 @@
-﻿
+﻿@model List<MongoWeb.Models.Products>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Product List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Brand Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>In Stock</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ProductId</td>
+                <td>@product.ProductName</td>
+                <td>@product.BrandName</td>
+                <td>@product.Category</td>
+                <td>@product.Price.ToString("C")</td> <!-- Format price as currency -->
+                <td>@product.CountInStock</td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = product.Id.ToString() })">Details</a> |
+                    <a href="@Url.Action("Edit", new { id = product.Id.ToString() })">Edit</a> |
+                    <a href="@Url.Action("Delete", new { id = product.Id.ToString() })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
 
