@@ -1,12 +1,20 @@
+<<<<<<< HEAD
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
+=======
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+>>>>>>> cf04facbecb200824066bcc7dc8888ff1ae8b365
 
 namespace MongoWeb.Models
 {
     public class Users
     {
+<<<<<<< HEAD
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId Id { get; set; } // MongoDB ID
@@ -73,5 +81,7 @@ namespace MongoWeb.Models
 
         [BsonElement("total_amount")]
         public decimal TotalAmount { get; set; } // Tổng số tiền
+=======
+>>>>>>> cf04facbecb200824066bcc7dc8888ff1ae8b365
     }
 }
