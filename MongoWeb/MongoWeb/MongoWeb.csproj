@@ -211,10 +211,9 @@
     <Content Include="assets\css\owl.video.play.html" />
     <Content Include="assets\css\owlcarousel.min.css" />
     <Content Include="assets\css\owltheme.min.css" />
-<<<<<<< HEAD
+
     <Content Include="assets\css\pagination.css" />
-=======
->>>>>>> d6cfa1843d611d05abb2beb277279b45c18e1c74
+
     <Content Include="assets\css\range-slider.css" />
     <Content Include="assets\css\simple-line-icons.css" />
     <Content Include="assets\css\slicknav.css" />
@@ -438,11 +437,11 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-<<<<<<< HEAD
+
     <Content Include="Views\Home\Details.cshtml" />
-=======
+
     <Content Include="Views\Home\Login.cshtml" />
->>>>>>> d6cfa1843d611d05abb2beb277279b45c18e1c74
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
