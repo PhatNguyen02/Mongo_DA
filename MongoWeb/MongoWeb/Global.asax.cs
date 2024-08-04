@@ -23,8 +23,10 @@ namespace MongoWeb
 
             // Khởi tạo kết nối MongoDB
             var client = new MongoClient("mongodb://localhost:27017/");
-            var database = client.GetDatabase("Cua_Hang_My_Pham");
+            //var database = client.GetDatabase("Cua_Hang_My_Pham");
+            var database = client.GetDatabase("test");
             var todoCollection = database.GetCollection<Products>("Products");
+            var userCollection = database.GetCollection<Users>("Users");
 
 
             var userCollection = database.GetCollection<Users>("Users");
@@ -38,7 +40,10 @@ namespace MongoWeb
 
             // Thiết lập Dependency Resolver
             DependencyResolver.SetResolver(new MyDependencyResolver(todoCollection, userCollection));
+<<<<<<< HEAD
 
+=======
+>>>>>>> f49b9df2830c565ddf9b7ef3127a06776cedad42
         }
         public class MyDependencyResolver : IDependencyResolver
         {
@@ -62,14 +67,18 @@ namespace MongoWeb
                 if (serviceType == typeof(HomeController))
                 {
                     var repository = new TodoRepository(todoCollection, userCollection);
+<<<<<<< HEAD
                     //var userrepository = new TodoRepository(userCollection);
+=======
+>>>>>>> f49b9df2830c565ddf9b7ef3127a06776cedad42
                     //var addTodo = new AddTodo(repository);
                     //var getAllTodos = new GetAllTodos(repository);
                     //var repository = csvRepository;
                     var addTodo = new AddTodo(repository);
                     var getAllTodos = new GetAll(repository);
+                    var login = new Login(repository);
                     //return new TodoController(repository);
-                    return new HomeController(addTodo, getAllTodos);
+                    return new HomeController(addTodo, getAllTodos, login);
                 }
                 return null;
             }

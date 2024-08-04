@@ -5,6 +5,10 @@ using System.Linq;
 using System.Web;
 using MongoWeb.Models;
 using MongoDB.Bson;
+<<<<<<< HEAD
+=======
+
+>>>>>>> f49b9df2830c565ddf9b7ef3127a06776cedad42
 
 namespace MongoWeb.Repositores
 {
@@ -12,7 +16,10 @@ namespace MongoWeb.Repositores
     {
         public readonly IMongoCollection<Products> collection;
         public readonly IMongoCollection<Users> collectionUser;
+<<<<<<< HEAD
 
+=======
+>>>>>>> f49b9df2830c565ddf9b7ef3127a06776cedad42
         public TodoRepository(IMongoCollection<Products> database, IMongoCollection<Users> userCollection)
         {
             collection = database;
@@ -26,7 +33,47 @@ namespace MongoWeb.Repositores
         {
             return collection.Find(_ => true).ToList();
         }
+<<<<<<< HEAD
         // User Methods
+=======
+
+        public List<string> GetProductCategories()
+        {
+            var distinctCategories = collection.Distinct<string>("category", FilterDefinition<Products>.Empty).ToList();
+            return distinctCategories;
+        }
+        public Products GetById(string id) // Thực hiện truy vấn theo ID
+        {
+            return collection.Find(p => p.ProductId == id).FirstOrDefault();
+        }
+        public List<Products> SearchProducts(string query)
+        {
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                // Trả về tất cả sản phẩm nếu query rỗng hoặc null
+                return collection.Find(_ => true).ToList(); // Trả về tất cả sản phẩm
+            }
+
+            // Loại bỏ khoảng trắng thừa từ query
+            query = query.Trim();
+
+            // Tạo biểu thức chính quy với tùy chọn không phân biệt chữ hoa chữ thường
+            var filter = Builders<Products>.Filter.Regex("ProductName", new MongoDB.Bson.BsonRegularExpression($".*{query}.*", "i"));
+
+            // Thực hiện tìm kiếm với filter
+            return collection.Find(filter).ToList();
+
+
+        public void Login(string gmail, string password)
+        {
+            var user = collectionUser.Find(u => u.Email == gmail && u.Password == password).FirstOrDefault();
+            if (user == null)
+            {
+                throw new Exception("Invalid login credentials.");
+            }
+            
+        }
+>>>>>>> f49b9df2830c565ddf9b7ef3127a06776cedad42
         public void AddUser(Users user)
         {
             collectionUser.InsertOne(user);
@@ -50,6 +97,12 @@ namespace MongoWeb.Repositores
         public void DeleteUser(string id)
         {
             collectionUser.DeleteOne(user => user.Id == new ObjectId(id));
+<<<<<<< HEAD
         }
+=======
+
+        }
+
+>>>>>>> f49b9df2830c565ddf9b7ef3127a06776cedad42
     }
 }

@@ -11,6 +11,15 @@ namespace MongoWeb
     {
         void Add(Products products);
         List<Products> GetAll();
+
+        List<string> GetProductCategories();
+        Products GetById(string id);
+        List<Products> SearchProducts(string query);
+
+
+        void Login(string email, string password);
+
+
     }
 
 }
