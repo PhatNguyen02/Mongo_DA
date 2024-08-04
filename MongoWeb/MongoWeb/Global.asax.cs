@@ -29,7 +29,7 @@ namespace MongoWeb
             var userCollection = database.GetCollection<Users>("Users");
 
 
-            var userCollection = database.GetCollection<Users>("Users");
+            //var userCollection = database.GetCollection<Users>("Users");
             //// Khởi tạo TodoSqlRepository cho SQL Server
             //string sqlServerConnectionString = "Server=LAPTOP-FD3P69GF;Database=TODO;Integrated Security=True;";
             //ITodoRepository todoRepository = new TodoSqlRepository(sqlServerConnectionString);
