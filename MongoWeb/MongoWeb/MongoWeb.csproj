@@ -211,7 +211,10 @@
     <Content Include="assets\css\owl.video.play.html" />
     <Content Include="assets\css\owlcarousel.min.css" />
     <Content Include="assets\css\owltheme.min.css" />
+<<<<<<< HEAD
     <Content Include="assets\css\pagination.css" />
+=======
+>>>>>>> d6cfa1843d611d05abb2beb277279b45c18e1c74
     <Content Include="assets\css\range-slider.css" />
     <Content Include="assets\css\simple-line-icons.css" />
     <Content Include="assets\css\slicknav.css" />
@@ -404,11 +407,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ITodoRepository.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositores\TodoRepository.cs" />
     <Compile Include="Services\AddTodo.cs" />
     <Compile Include="Services\GetAll.cs" />
+    <Compile Include="Services\Login.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -432,7 +438,11 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Home\Details.cshtml" />
+=======
+    <Content Include="Views\Home\Login.cshtml" />
+>>>>>>> d6cfa1843d611d05abb2beb277279b45c18e1c74
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -443,6 +453,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\image\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.SecurityToken.3.7.100.14\analyzers\dotnet\cs\AWSSDK.SecurityToken.CodeAnalysis.dll" />
