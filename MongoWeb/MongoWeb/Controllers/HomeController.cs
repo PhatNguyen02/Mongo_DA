@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+//using System.Web.UI.WebControls;
 
 namespace MongoWeb.Controllers
 {
@@ -13,11 +14,13 @@ namespace MongoWeb.Controllers
         // GET: Home
         private AddTodo addTodo;
         private GetAll getAllTodos;
+        private Login login;
 
-        public HomeController(AddTodo addTodo, GetAll getAllTodos)
+        public HomeController(AddTodo addTodo, GetAll getAllTodos , Login login)
         {
             this.addTodo = addTodo;
             this.getAllTodos = getAllTodos;
+            this.login = login;
         }
         public ActionResult Index()
         {
@@ -38,6 +41,32 @@ namespace MongoWeb.Controllers
                 return RedirectToAction("Index");
             }
             return View(todo);
+        }
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                bool isAuthenticated = login.Authenticate(model.Email, model.Password);
+                if (isAuthenticated)
+                {
+                    // Lưu thông tin người dùng vào Session hoặc Cookie nếu cần
+                    // Ví dụ: Session["User"] = user;
+
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid login attempt.");
+                }
+            }
+            return View(model);
         }
     }
 }

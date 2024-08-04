@@ -11,6 +11,9 @@ namespace MongoWeb
     {
         void Add(Products products);
         List<Products> GetAll();
+
+        void Login(string email, string password);
+
     }
 
 }
