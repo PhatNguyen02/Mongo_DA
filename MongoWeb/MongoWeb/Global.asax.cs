@@ -40,10 +40,7 @@ namespace MongoWeb
 
             // Thiết lập Dependency Resolver
             DependencyResolver.SetResolver(new MyDependencyResolver(todoCollection, userCollection));
-<<<<<<< HEAD
 
-=======
->>>>>>> f49b9df2830c565ddf9b7ef3127a06776cedad42
         }
         public class MyDependencyResolver : IDependencyResolver
         {
@@ -67,10 +64,7 @@ namespace MongoWeb
                 if (serviceType == typeof(HomeController))
                 {
                     var repository = new TodoRepository(todoCollection, userCollection);
-<<<<<<< HEAD
                     //var userrepository = new TodoRepository(userCollection);
-=======
->>>>>>> f49b9df2830c565ddf9b7ef3127a06776cedad42
                     //var addTodo = new AddTodo(repository);
                     //var getAllTodos = new GetAllTodos(repository);
                     //var repository = csvRepository;
