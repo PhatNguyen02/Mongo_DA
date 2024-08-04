@@ -14,7 +14,6 @@ namespace MongoWeb.Repositores
         public readonly IMongoCollection<Products> collection;
         public readonly IMongoCollection<Users> collectionUser;
 
-
         public TodoRepository(IMongoCollection<Products> database, IMongoCollection<Users> userCollection)
         {
             collection = database;
@@ -28,6 +27,10 @@ namespace MongoWeb.Repositores
         {
             return collection.Find(_ => true).ToList();
         }
+
+
+        // User Methods
+
 
         public List<string> GetProductCategories()
         {
@@ -56,6 +59,9 @@ namespace MongoWeb.Repositores
             return collection.Find(filter).ToList();
 
 
+          
+
+        }
         public void Login(string gmail, string password)
         {
             var user = collectionUser.Find(u => u.Email == gmail && u.Password == password).FirstOrDefault();
@@ -63,7 +69,7 @@ namespace MongoWeb.Repositores
             {
                 throw new Exception("Invalid login credentials.");
             }
-            
+
         }
         public void AddUser(Users user)
         {
