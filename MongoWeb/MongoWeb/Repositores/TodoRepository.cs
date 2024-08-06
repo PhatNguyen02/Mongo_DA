@@ -13,11 +13,14 @@ namespace MongoWeb.Repositores
     {
         public readonly IMongoCollection<Products> collection;
         public readonly IMongoCollection<Users> collectionUser;
+        public readonly IMongoCollection<Order> collectionOrder; // Thêm IMongoCollection cho Order
 
-        public TodoRepository(IMongoCollection<Products> database, IMongoCollection<Users> userCollection)
+
+        public TodoRepository(IMongoCollection<Products> database, IMongoCollection<Users> userCollection , IMongoCollection<Order> orderCollection)
         {
             collection = database;
             collectionUser = userCollection;
+            collectionOrder = orderCollection;
         }
         public void Add(Products products)
         {
@@ -97,6 +100,139 @@ namespace MongoWeb.Repositores
 
 
         }
+
+        //Cart
+        public List<CartItem> GetCartItems()
+        {
+            if (HttpContext.Current.Session["Cart"] == null)
+            {
+                HttpContext.Current.Session["Cart"] = new List<CartItem>();
+            }
+            return (List<CartItem>)HttpContext.Current.Session["Cart"];
+        }
+
+        public void AddToCart(ObjectId userId, Products product, int quantity)
+        {
+            var cartItems = GetCartItems();
+            var cartItem = cartItems.FirstOrDefault(item => item.Product.Id == product.Id);
+
+            if (cartItem == null)
+            {
+                cartItems.Add(new CartItem
+                {
+                    Product = product,
+                    Quantity = quantity
+                });
+            }
+            else
+            {
+                cartItem.Quantity += quantity;
+            }
+
+            HttpContext.Current.Session["Cart"] = cartItems;
+        }
+
+        public void RemoveFromCart(ObjectId userId, ObjectId productId)
+        {
+            var cartItems = GetCartItems();
+            var cartItem = cartItems.FirstOrDefault(item => item.Product.Id == productId);
+
+            if (cartItem != null)
+            {
+                cartItems.Remove(cartItem);
+            }
+
+            HttpContext.Current.Session["Cart"] = cartItems;
+        }
+
+        public void ClearCart(ObjectId userId)
+        {
+            HttpContext.Current.Session["Cart"] = new List<CartItem>();
+        }
+
+
+        //order
+        //public void AddOrder(Order order)
+        //{
+        //    collectionOrder.InsertOne(order);
+        //}
+
+        //public Order GetOrderById(string id)
+        //{
+        //    return collectionOrder.Find(o => o.Id == id).FirstOrDefault();
+        //}
+
+        //public List<Order> GetAllOrders()
+        //{
+        //    return collectionOrder.Find(_ => true).ToList();
+        //}
+
+        //public void UpdateOrder(Order order)
+        //{
+        //    collectionOrder.ReplaceOne(o => o.Id == order.Id, order);
+        //}
+
+        //public void DeleteOrder(string orderId)
+        //{
+        //    collectionOrder.DeleteOne(o => o.Id == orderId);
+        //}
+
+        //public void PlaceOrder(string customerName, string shippingAddress, string paymentMethod)
+        //{
+        //    var cartItems = GetCartItems();
+        //    if (!cartItems.Any())
+        //    {
+        //        throw new Exception("Cart is empty.");
+        //    }
+
+        //    var orderId = Guid.NewGuid().ToString();
+        //    var totalAmount = cartItems.Sum(item => item.Product.Price * item.Quantity);
+
+        //    var order = new Order
+        //    {
+        //        OrderId = orderId,
+        //        CustomerName = customerName,
+        //        OrderDate = DateTime.UtcNow,
+        //        TotalAmount = totalAmount,
+        //        Items = cartItems.Select(item => new OrderItem
+        //        {
+        //            ProductId = item.Product.ProductId,
+        //            Quantity = item.Quantity
+        //        }).ToList(),
+        //        ShippingAddress = shippingAddress,
+        //        PaymentMethod = paymentMethod,
+        //        Status = "Pending"
+        //    };
+
+        //    AddOrder(order);
+        //    ClearCart(ObjectId.Empty);
+        //}
+        public void PlaceOrder(Order order)
+        {
+            collectionOrder.InsertOne(order);
+        }
+
+        public Order GetOrderById(string id)
+        {
+            return collectionOrder.Find(o => o.OrderId == id).FirstOrDefault();
+        }
+
+        public List<Order> GetAllOrders(string email)
+        {
+            return collectionOrder.Find(order => order.Email == email).ToList();
+        }
+
+        public void UpdateOrder(Order order)
+        {
+            collectionOrder.ReplaceOne(o => o.OrderId == order.OrderId, order);
+        }
+
+        public void DeleteOrder(string orderId)
+        {
+            collectionOrder.DeleteOne(o => o.OrderId == orderId);
+        }
+
+
 
 
     }

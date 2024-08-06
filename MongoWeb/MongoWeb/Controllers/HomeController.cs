@@ -106,11 +106,39 @@ namespace MongoWeb.Controllers
 
         public ActionResult Login()
         {
+            ViewBag.UserName = Session["UserName"] as string ?? "Guest";
             return View();
         }
 
         [HttpPost]
         public ActionResult Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                bool isAuthenticated = login.Authenticate(model.Email, model.Password);
+                if (isAuthenticated)
+                {
+                   
+
+                    // Lưu thông tin người dùng vào Session
+                    Session["UserName"] = model.Email; // user là đối tượng chứa thông tin người dùng, ví dụ: tên người dùng, email, v.v.
+
+                    var userName = Session["UserName"] as string;
+
+                    // Truyền thông tin vào ViewBag
+                    ViewBag.UserName = Session["Username"] ?? "Guest";
+                    //ViewBag.UserName = userName ?? "Guest";
+
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid login attempt.");
+                }
+            }
+            return View(model);
+        }
+        public ActionResult Logout(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -129,6 +157,8 @@ namespace MongoWeb.Controllers
             }
             return View(model);
         }
+
+
 
     }
 }

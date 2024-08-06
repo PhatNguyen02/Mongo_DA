@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@model MongoWeb.Models.Order
+
+<section class="checkout-area">
+    <div class="container">
+        <h2>Checkout</h2>
+        <form method="post" action="@Url.Action("PlaceOrder", "Cart")">
+            <div class="row">
+                <div class="col-12">
+                    <h3>Shipping Address</h3>
+                    <div class="form-group">
+                        <label for="shippingAddress">Address</label>
+                        <input type="text" id="shippingAddress" name="ShippingAddress" class="form-control" value="@Model.ShippingAddress" required />
+                    </div>
+                </div>
+                <div class="col-12">
+                    <h3>Payment Method</h3>
+                    <div class="form-group">
+                        <label for="paymentMethod">Payment Method</label>
+                        <select id="paymentMethod" name="PaymentMethod" class="form-control" required>
+                            <option value="CreditCard">Credit Card</option>
+                            <option value="PayPal">PayPal</option>
+                            <!-- Thêm các phương thức thanh toán khác nếu cần -->
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <input type="hidden" name="Email" value="@Model.Email" />
+                    <button type="submit" class="btn btn-primary">Place Order</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+

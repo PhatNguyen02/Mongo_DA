@@ -1,16 +1,13 @@
-﻿using MongoDB.Driver;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using System.Web.Routing;
+using MongoDB.Driver;
 using MongoWeb.Controllers;
 using MongoWeb.Models;
 using MongoWeb.Repositores;
 using MongoWeb.Services;
-
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
 
 namespace MongoWeb
 {
@@ -21,58 +18,72 @@ namespace MongoWeb
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            // Khởi tạo kết nối MongoDB
-            var client = new MongoClient("mongodb://localhost:27017/");
-            var database = client.GetDatabase("Cua_Hang_My_Pham");
-            //var database = client.GetDatabase("test");
-            var todoCollection = database.GetCollection<Products>("Products");
-            var userCollection = database.GetCollection<Users>("Users");
+            try
+            {
+                // Khởi tạo kết nối MongoDB
+                var client = new MongoClient("mongodb://localhost:27017/");
+                var database = client.GetDatabase("Cua_Hang_My_Pham");
 
+                // Khởi tạo các collection
+                var productCollection = database.GetCollection<Products>("Products");
+                var userCollection = database.GetCollection<Users>("Users");
+                var orderCollection = database.GetCollection<Order>("Orders");
 
-            //var userCollection = database.GetCollection<Users>("Users");
-            //// Khởi tạo TodoSqlRepository cho SQL Server
-            //string sqlServerConnectionString = "Server=LAPTOP-FD3P69GF;Database=TODO;Integrated Security=True;";
-            //ITodoRepository todoRepository = new TodoSqlRepository(sqlServerConnectionString);
-
-            //// Khởi tạo TodoFileRepository
-            //string csvFilePath = "E:\\ChuBieu\\cstodo\\cstodo\\todo_task.todos.csv";
-            //ITodoRepository csvRepository = new TodoFileRepository(csvFilePath);
-
-            // Thiết lập Dependency Resolver
-            DependencyResolver.SetResolver(new MyDependencyResolver(todoCollection, userCollection));
-
+                // Thiết lập Dependency Resolver
+                DependencyResolver.SetResolver(new MyDependencyResolver(productCollection, userCollection, orderCollection));
+            }
+            catch (MongoConnectionException ex)
+            {
+                // Xử lý lỗi kết nối MongoDB
+                Console.WriteLine($"Lỗi kết nối MongoDB: {ex.Message}");
+                // Bạn có thể ghi log hoặc thông báo cho người dùng tại đây
+                // Ví dụ: Ghi log vào một file log hoặc thông báo trên giao diện người dùng
+                throw new InvalidOperationException("Không thể kết nối đến MongoDB", ex);
+            }
+            catch (MongoException ex)
+            {
+                // Xử lý lỗi chung liên quan đến MongoDB
+                Console.WriteLine($"Lỗi MongoDB: {ex.Message}");
+                // Bạn có thể ghi log hoặc thông báo cho người dùng tại đây
+                throw new InvalidOperationException("Lỗi khi làm việc với MongoDB", ex);
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi chung không phải liên quan đến MongoDB
+                Console.WriteLine($"Lỗi không xác định: {ex.Message}");
+                // Bạn có thể ghi log hoặc thông báo cho người dùng tại đây
+                throw new InvalidOperationException("Lỗi không xác định", ex);
+            }
         }
+
         public class MyDependencyResolver : IDependencyResolver
         {
-            private IMongoCollection<Products> todoCollection;
-            private IMongoCollection<Users> userCollection;
-            //private ITodoRepository todoRepository;
-            //private ITodoRepository csvRepository;
+            private readonly IMongoCollection<Products> productCollection;
+            private readonly IMongoCollection<Users> userCollection;
+            private readonly IMongoCollection<Order> orderCollection;
 
-            public MyDependencyResolver(IMongoCollection<Products> todoCollection, IMongoCollection<Users> userCollection)
+            public MyDependencyResolver(IMongoCollection<Products> productCollection, IMongoCollection<Users> userCollection, IMongoCollection<Order> orderCollection)
             {
-                this.todoCollection = todoCollection;
+                this.productCollection = productCollection;
                 this.userCollection = userCollection;
-                //this.todoRepository = todoRepository;
-                //this.csvRepository = csvRepository;
+                this.orderCollection = orderCollection;
             }
-
-            
 
             public object GetService(Type serviceType)
             {
                 if (serviceType == typeof(HomeController))
                 {
-                    var repository = new TodoRepository(todoCollection, userCollection);
-                    //var userrepository = new TodoRepository(userCollection);
-                    //var addTodo = new AddTodo(repository);
-                    //var getAllTodos = new GetAllTodos(repository);
-                    //var repository = csvRepository;
+                    var repository = new TodoRepository(productCollection, userCollection, orderCollection);
                     var addTodo = new AddTodo(repository);
                     var getAllTodos = new GetAll(repository);
                     var login = new Login(repository);
-                    //return new TodoController(repository);
                     return new HomeController(addTodo, getAllTodos, login);
+                }
+                if (serviceType == typeof(CartController))
+                {
+                    var repository = new TodoRepository(productCollection, userCollection, orderCollection);
+                    var cartService = new Cart(repository);
+                    return new CartController(cartService, repository);
                 }
                 return null;
             }

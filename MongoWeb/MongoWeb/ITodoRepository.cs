@@ -1,4 +1,5 @@
-﻿using MongoWeb.Models;
+﻿using MongoDB.Bson;
+using MongoWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,20 @@ namespace MongoWeb
         Products GetById(string id);
         List<Products> SearchProducts(string query);
 
-
         void Login(string email, string password);
 
+        List<CartItem> GetCartItems();
 
+        Users GetUserById(string id);
+        void ClearCart(ObjectId UserId);
+
+        // Order Methods
+
+         void PlaceOrder(Order order);
+        Order GetOrderById(string id);
+        List<Order> GetAllOrders(string email);
+        void UpdateOrder(Order order);
+        void DeleteOrder(string orderId);
     }
 
 }

@@ -122,19 +122,16 @@
     <Reference Include="MongoDB.Libmongocrypt, Version=1.11.0.0, Culture=neutral, PublicKeyToken=94992a530f44e321, processorArchitecture=MSIL">
       <HintPath>..\packages\MongoDB.Libmongocrypt.1.11.0\lib\net472\MongoDB.Libmongocrypt.dll</HintPath>
     </Reference>
-
     <!--<Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NuGet.Frameworks, Version=4.7.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\NuGet.Frameworks.4.7.3\lib\net46\NuGet.Frameworks.dll</HintPath>-->
-
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
     <Reference Include="PagedList.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Core.1.17.4\lib\net462\PagedList.Core.dll</HintPath>
-
     </Reference>
     <Reference Include="SharpCompress, Version=0.30.1.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpCompress.0.30.1\lib\net461\SharpCompress.dll</HintPath>
@@ -315,7 +312,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-
     <!--<Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
       <Private>True</Private>
@@ -335,10 +331,8 @@
       <HintPath>..\packages\System.Xml.XPath.XDocument.4.3.0\lib\net46\System.Xml.XPath.XDocument.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>-->
-
     <Reference Include="X.PagedList, Version=10.0.3.0, Culture=neutral, PublicKeyToken=525ccaa9023f010c, processorArchitecture=MSIL">
       <HintPath>..\packages\X.PagedList.10.0.3\lib\netstandard2.0\X.PagedList.dll</HintPath>
-
     </Reference>
     <Reference Include="ZstdSharp, Version=0.7.3.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
       <HintPath>..\packages\ZstdSharp.Port.0.7.3\lib\net461\ZstdSharp.dll</HintPath>
@@ -380,9 +374,7 @@
     <Content Include="assets\css\owl.video.play.html" />
     <Content Include="assets\css\owlcarousel.min.css" />
     <Content Include="assets\css\owltheme.min.css" />
-
     <Content Include="assets\css\pagination.css" />
-
     <Content Include="assets\css\range-slider.css" />
     <Content Include="assets\css\simple-line-icons.css" />
     <Content Include="assets\css\slicknav.css" />
@@ -571,19 +563,25 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Connect\MongoDbConnection.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ITodoRepository.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Products.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositores\TodoRepository.cs" />
     <Compile Include="Services\AddTodo.cs" />
+    <Compile Include="Services\Cart.cs" />
     <Compile Include="Services\GetAll.cs" />
     <Compile Include="Services\Login.cs" />
+    <Compile Include="Services\Orderservice.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -607,11 +605,15 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-
     <Content Include="Views\Home\Details.cshtml" />
-
     <Content Include="Views\Home\Login.cshtml" />
-
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\OrderSuccess.cshtml" />
+    <Content Include="Views\Cart\PlaceOrder.cshtml" />
+    <Content Include="Views\Cart\Checkout.cshtml" />
+    <Content Include="Views\Cart\OrderConfirmation.cshtml" />
+    <Content Include="Views\Cart\OrderList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -623,11 +625,8 @@
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Content\image\" />
-
     <Folder Include="Views\Account\" />
-
     <Folder Include="Views\Default\" />
-
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.SecurityToken.3.7.100.14\analyzers\dotnet\cs\AWSSDK.SecurityToken.CodeAnalysis.dll" />

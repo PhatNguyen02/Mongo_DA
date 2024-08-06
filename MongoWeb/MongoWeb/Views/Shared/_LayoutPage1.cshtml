@@ -150,12 +150,27 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col col-md-4 col-sm-12">
-                            <div class="contact-link">
+                            <<div class="contact-link">
                                 <div class="contact-info">
-                                    <span class="phone">Call Us: <a href="tel:(+123)4567890">(+123)4567890</a></span>
-                                    <div class="time-contact">7 Days a week from 9:00 am to 7:00 pm</div>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            @if (Session["UserName"] != null)
+                                            {
+                                                <a href="@Url.Action("Logout", "Home")" title="Logout">
+                                                    <i class="fas fa-sign-out-alt icon-large"></i> @Session["UserName"]
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a href="@Url.Action("Login", "Home")" title="Login">
+                                                    <i class="fas fa-sign-in-alt icon-large"></i> Login
+                                                </a>
+                                            }
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
+
                         </div>
                         <div class="col col-md-4 col-sm-12">
                             <div class="header-logo-area text-center">
