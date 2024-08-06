@@ -585,11 +585,11 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Connect\MongoDbConnection.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-<<<<<<< HEAD
+
     <Compile Include="Controllers\AdminController.cs" />
-=======
+
     <Compile Include="Controllers\CartController.cs" />
->>>>>>> 254288cff7657d0bc6e78e6a4f44e9a7991af316
+
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
@@ -598,11 +598,11 @@
     <Compile Include="ITodoRepository.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
-<<<<<<< HEAD
+
     <Compile Include="Models\ProductModel.cs" />
-=======
+
     <Compile Include="Models\Order.cs" />
->>>>>>> 254288cff7657d0bc6e78e6a4f44e9a7991af316
+
     <Compile Include="Models\Products.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\Users.cs" />
@@ -613,11 +613,11 @@
     <Compile Include="Services\GetAll.cs" />
     <Compile Include="Services\Register.cs" />
     <Compile Include="Services\Login.cs" />
-<<<<<<< HEAD
+
     <Compile Include="Services\UserService.cs" />
-=======
+
     <Compile Include="Services\Orderservice.cs" />
->>>>>>> 254288cff7657d0bc6e78e6a4f44e9a7991af316
+
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -647,7 +647,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-<<<<<<< HEAD
+
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LayoutPage2.cshtml" />
     <Content Include="Views\Admin\QuanLy.cshtml" />
@@ -658,7 +658,7 @@
     <Content Include="Views\Admin\QuanLyUser.cshtml" />
     <Content Include="Views\Admin\DeleteUser.cshtml" />
     <Content Include="Views\Admin\EditUser.cshtml" />
-=======
+
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />
     <Content Include="Views\Order\OrderSuccess.cshtml" />
@@ -666,7 +666,6 @@
     <Content Include="Views\Cart\Checkout.cshtml" />
     <Content Include="Views\Cart\OrderConfirmation.cshtml" />
     <Content Include="Views\Cart\OrderList.cshtml" />
->>>>>>> 254288cff7657d0bc6e78e6a4f44e9a7991af316
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -678,10 +677,9 @@
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Content\image\" />
-<<<<<<< HEAD
-=======
+
     <Folder Include="Views\Account\" />
->>>>>>> 254288cff7657d0bc6e78e6a4f44e9a7991af316
+
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
