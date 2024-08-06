@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@model MongoWeb.Models.Order
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Details</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/site.css" />
+</head>
+<body>
+    <div>
+        <h2>Order Details</h2>
+        <p><strong>Order ID:</strong> @Model.OrderId</p>
+        <p><strong>Customer Name:</strong> @Model.Email</p>
+        <p><strong>Order Date:</strong> @Model.OrderDate.ToString("dd/MM/yyyy")</p>
+        <p><strong>Total Amount:</strong> @Model.TotalAmount.ToString("C")</p>
+        <p><strong>Shipping Address:</strong> @Model.ShippingAddress</p>
+        <p><strong>Payment Method:</strong> @Model.PaymentMethod</p>
+        <p><strong>Status:</strong> @Model.Status</p>
+
+        <h3>Order Items</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>@item.ProductId</td>
+                        <td>@item.Quantity</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

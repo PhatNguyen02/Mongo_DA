@@ -9,7 +9,7 @@ namespace MongoWeb.Services
 {
     public class AddTodo
     {
-        private ITodoRepository todoRepository;
+        public ITodoRepository todoRepository;
 
         public AddTodo(ITodoRepository todoRepository)
         {
@@ -18,7 +18,7 @@ namespace MongoWeb.Services
         public void Excute(Products todo)
         {
             todoRepository.Add(todo);
-        }
+        }  
         public void Excute()
         {
         }

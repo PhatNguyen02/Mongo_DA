@@ -312,6 +312,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+<<<<<<< HEAD
     <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.11.1\lib\net47\Unity.Abstractions.dll</HintPath>
     </Reference>
@@ -321,6 +322,8 @@
     <Reference Include="Unity.Mvc5, Version=1.4.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.Mvc5.1.4.0\lib\net45\Unity.Mvc5.dll</HintPath>
     </Reference>
+=======
+>>>>>>> 254288cff7657d0bc6e78e6a4f44e9a7991af316
     <!--<Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
       <Private>True</Private>
@@ -583,24 +586,39 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Connect\MongoDbConnection.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\AdminController.cs" />
+=======
+    <Compile Include="Controllers\CartController.cs" />
+>>>>>>> 254288cff7657d0bc6e78e6a4f44e9a7991af316
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ITodoRepository.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\ProductModel.cs" />
+=======
+    <Compile Include="Models\Order.cs" />
+>>>>>>> 254288cff7657d0bc6e78e6a4f44e9a7991af316
     <Compile Include="Models\Products.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositores\TodoRepository.cs" />
     <Compile Include="Services\AddTodo.cs" />
+    <Compile Include="Services\Cart.cs" />
     <Compile Include="Services\GetAll.cs" />
     <Compile Include="Services\Register.cs" />
     <Compile Include="Services\Login.cs" />
+<<<<<<< HEAD
     <Compile Include="Services\UserService.cs" />
+=======
+    <Compile Include="Services\Orderservice.cs" />
+>>>>>>> 254288cff7657d0bc6e78e6a4f44e9a7991af316
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -630,6 +648,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LayoutPage2.cshtml" />
     <Content Include="Views\Admin\QuanLy.cshtml" />
@@ -640,6 +659,15 @@
     <Content Include="Views\Admin\QuanLyUser.cshtml" />
     <Content Include="Views\Admin\DeleteUser.cshtml" />
     <Content Include="Views\Admin\EditUser.cshtml" />
+=======
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\OrderSuccess.cshtml" />
+    <Content Include="Views\Cart\PlaceOrder.cshtml" />
+    <Content Include="Views\Cart\Checkout.cshtml" />
+    <Content Include="Views\Cart\OrderConfirmation.cshtml" />
+    <Content Include="Views\Cart\OrderList.cshtml" />
+>>>>>>> 254288cff7657d0bc6e78e6a4f44e9a7991af316
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -651,6 +679,10 @@
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Content\image\" />
+<<<<<<< HEAD
+=======
+    <Folder Include="Views\Account\" />
+>>>>>>> 254288cff7657d0bc6e78e6a4f44e9a7991af316
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,3 +1,5 @@
+C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\obj\Debug\MongoWeb.csproj.AssemblyReference.cache
+C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\obj\Debug\MongoWeb.csproj.CoreCompileInputs.cache
 C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\mongocrypt.dll
 C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\MongoWeb.dll.config
 C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\MongoWeb.dll
@@ -106,7 +108,6 @@ C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\System.Web.Webpages.dll
 C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\System.Web.Webpages.Razor.dll
 C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\X.PagedList.dll
 C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\ZstdSharp.dll
-C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\Newtonsoft.Json.dll
 C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\AWSSDK.Core.pdb
 C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\AWSSDK.Core.xml
 C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\AWSSDK.SecurityToken.pdb
@@ -159,8 +160,6 @@ C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\System.Web.Webpages.Razor.
 C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\System.Web.Helpers.xml
 C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\System.Web.Mvc.xml
 C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\obj\Debug\MongoWeb.csproj.AssemblyReference.cache
-C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\obj\Debug\MongoWeb.csproj.CoreCompileInputs.cache
 C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\obj\Debug\MongoWeb.csproj.CopyComplete
 C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\obj\Debug\MongoWeb.dll
 C:\Users\ADMIN\Desktop\Mongo_DA\MongoWeb\MongoWeb\obj\Debug\MongoWeb.pdb

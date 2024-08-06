@@ -1,4 +1,5 @@
-﻿using MongoWeb.Models;
+﻿using MongoDB.Bson;
+using MongoWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,6 @@ namespace MongoWeb
         Products GetById(string id);
         //Tim kiem sp
         List<Products> SearchProducts(string query);
-
-        //Login
         void Login(string email, string password);
         //Register
         void Register(Register register);
@@ -42,7 +41,18 @@ namespace MongoWeb
         Users GetUserById(string id);
         //Tim kiem user
 
+        List<CartItem> GetCartItems();
 
+        Users GetUserById(string id);
+        void ClearCart(ObjectId UserId);
+
+        // Order Methods
+
+         void PlaceOrder(Order order);
+        Order GetOrderById(string id);
+        List<Order> GetAllOrders(string email);
+        void UpdateOrder(Order order);
+        void DeleteOrder(string orderId);
     }
 
 }

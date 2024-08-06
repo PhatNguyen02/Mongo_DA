@@ -44,7 +44,7 @@ namespace MongoWeb.Models
     {
         [BsonElement("user")]
         public string User { get; set; }
-
+           
         [BsonElement("rating")]
         public int Rating { get; set; }
 

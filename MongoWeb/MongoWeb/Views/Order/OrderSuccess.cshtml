@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "OrderSuccess";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Success</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/site.css" />
+</head>
+<body>
+    <div>
+        <h2>Order Successful!</h2>
+        <p>Your order has been placed successfully.</p>
+        <a href="@Url.Action("Index", "Cart")">Return to Cart</a>
+    </div>
+</body>
+</html>
