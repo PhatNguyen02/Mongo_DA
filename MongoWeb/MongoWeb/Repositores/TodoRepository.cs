@@ -31,6 +31,7 @@ namespace MongoWeb.Repositores
             return collection.Find(_ => true).ToList();
         }
 
+
         // User Methods
 
 
@@ -73,7 +74,6 @@ namespace MongoWeb.Repositores
             }
 
         }
-
         public void AddUser(Users user)
         {
             collectionUser.InsertOne(user);
@@ -97,9 +97,8 @@ namespace MongoWeb.Repositores
         public void DeleteUser(string id)
         {
             collectionUser.DeleteOne(user => user.Id == new ObjectId(id));
-
-
         }
+<<<<<<< HEAD
 
         //Cart
         public List<CartItem> GetCartItems()
@@ -235,5 +234,7 @@ namespace MongoWeb.Repositores
 
 
 
+=======
+>>>>>>> c382e6f963c513929620af8547ed3ecb0bb35850
     }
 }
