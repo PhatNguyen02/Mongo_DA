@@ -11,6 +11,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Unity.Mvc5;
+using Unity;
 
 namespace MongoWeb
 {
@@ -21,25 +23,25 @@ namespace MongoWeb
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            // Khởi tạo kết nối MongoDB
+            // Initialize Unity container
+            var container = new UnityContainer();
+
+            // Initialize MongoDB connection
             var client = new MongoClient("mongodb://localhost:27017/");
             var database = client.GetDatabase("Cua_Hang_My_Pham");
-            //var database = client.GetDatabase("test");
             var todoCollection = database.GetCollection<Products>("Products");
             var userCollection = database.GetCollection<Users>("Users");
 
+            // Register MongoDB collections
+            container.RegisterInstance(todoCollection);
+            container.RegisterInstance(userCollection);
 
-            //var userCollection = database.GetCollection<Users>("Users");
-            //// Khởi tạo TodoSqlRepository cho SQL Server
-            //string sqlServerConnectionString = "Server=LAPTOP-FD3P69GF;Database=TODO;Integrated Security=True;";
-            //ITodoRepository todoRepository = new TodoSqlRepository(sqlServerConnectionString);
+            // Register repositories and services
+            container.RegisterType<ITodoRepository, TodoRepository>();
+            container.RegisterType<Models.Register>(); // Ensure this matches your actual service
 
-            //// Khởi tạo TodoFileRepository
-            //string csvFilePath = "E:\\ChuBieu\\cstodo\\cstodo\\todo_task.todos.csv";
-            //ITodoRepository csvRepository = new TodoFileRepository(csvFilePath);
-
-            // Thiết lập Dependency Resolver
-            DependencyResolver.SetResolver(new MyDependencyResolver(todoCollection, userCollection));
+            // Set up Dependency Resolver
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
 
         }
         public class MyDependencyResolver : IDependencyResolver
@@ -71,6 +73,8 @@ namespace MongoWeb
                     var addTodo = new AddTodo(repository);
                     var getAllTodos = new GetAll(repository);
                     var login = new Login(repository);
+                    var register = new Login(repository);
+                    var userService = new UserService(repository);
                     //return new TodoController(repository);
                     return new HomeController(addTodo, getAllTodos, login);
                 }

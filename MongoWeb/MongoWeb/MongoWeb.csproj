@@ -122,19 +122,16 @@
     <Reference Include="MongoDB.Libmongocrypt, Version=1.11.0.0, Culture=neutral, PublicKeyToken=94992a530f44e321, processorArchitecture=MSIL">
       <HintPath>..\packages\MongoDB.Libmongocrypt.1.11.0\lib\net472\MongoDB.Libmongocrypt.dll</HintPath>
     </Reference>
-
     <!--<Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NuGet.Frameworks, Version=4.7.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\NuGet.Frameworks.4.7.3\lib\net46\NuGet.Frameworks.dll</HintPath>-->
-
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
     <Reference Include="PagedList.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Core.1.17.4\lib\net462\PagedList.Core.dll</HintPath>
-
     </Reference>
     <Reference Include="SharpCompress, Version=0.30.1.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpCompress.0.30.1\lib\net461\SharpCompress.dll</HintPath>
@@ -315,7 +312,15 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-
+    <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.1\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.1\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mvc5, Version=1.4.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Mvc5.1.4.0\lib\net45\Unity.Mvc5.dll</HintPath>
+    </Reference>
     <!--<Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
       <Private>True</Private>
@@ -335,10 +340,8 @@
       <HintPath>..\packages\System.Xml.XPath.XDocument.4.3.0\lib\net46\System.Xml.XPath.XDocument.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>-->
-
     <Reference Include="X.PagedList, Version=10.0.3.0, Culture=neutral, PublicKeyToken=525ccaa9023f010c, processorArchitecture=MSIL">
       <HintPath>..\packages\X.PagedList.10.0.3\lib\netstandard2.0\X.PagedList.dll</HintPath>
-
     </Reference>
     <Reference Include="ZstdSharp, Version=0.7.3.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
       <HintPath>..\packages\ZstdSharp.Port.0.7.3\lib\net461\ZstdSharp.dll</HintPath>
@@ -380,9 +383,7 @@
     <Content Include="assets\css\owl.video.play.html" />
     <Content Include="assets\css\owlcarousel.min.css" />
     <Content Include="assets\css\owltheme.min.css" />
-
     <Content Include="assets\css\pagination.css" />
-
     <Content Include="assets\css\range-slider.css" />
     <Content Include="assets\css\simple-line-icons.css" />
     <Content Include="assets\css\slicknav.css" />
@@ -420,6 +421,7 @@
     <Content Include="assets\img\icons\select-arrow.png" />
     <Content Include="assets\img\logo-light.png" />
     <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\option.png" />
     <Content Include="assets\img\photos\bg-01.jpg" />
     <Content Include="assets\img\photos\bg-02.jpg" />
     <Content Include="assets\img\photos\divider-01.jpg" />
@@ -563,27 +565,42 @@
     <Content Include="Content\js\swiper.min.js" />
     <Content Include="Content\js\waypoints.js" />
     <Content Include="Content\Site.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\showlistproducts.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\style1.css" />
+    <Content Include="css\styleRe.css" />
+    <Content Include="css\tabler-icons\logo.svg" />
+    <Content Include="css\tabler-icons\tabler-icons.min.css" />
+    <Content Include="css\tabler-icons\user.jpg" />
     <Content Include="Global.asax" />
     <Content Include="mongocrypt.dll" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Connect\MongoDbConnection.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ITodoRepository.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\Register.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositores\TodoRepository.cs" />
     <Compile Include="Services\AddTodo.cs" />
     <Compile Include="Services\GetAll.cs" />
+    <Compile Include="Services\Register.cs" />
     <Compile Include="Services\Login.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -604,14 +621,25 @@
     <Content Include="assets\fonts\Simple-Line-Iconsb26c.ttf" />
     <Content Include="assets\fonts\Simple-Line-Iconsb26c.woff" />
     <Content Include="assets\fonts\Simple-Line-Iconsb26c.woff2" />
+    <Content Include="css\tabler-icons\fonts\tabler-icons.eot" />
+    <Content Include="css\tabler-icons\fonts\tabler-icons.ttf" />
+    <Content Include="css\tabler-icons\fonts\tabler-icons.woff" />
+    <Content Include="css\tabler-icons\fonts\tabler-icons.woff2" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-
     <Content Include="Views\Home\Details.cshtml" />
-
     <Content Include="Views\Home\Login.cshtml" />
-
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage2.cshtml" />
+    <Content Include="Views\Admin\QuanLy.cshtml" />
+    <Content Include="Views\Admin\ThemSanPham.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Admin\ThemUser.cshtml" />
+    <Content Include="Views\Admin\QuanLyUser.cshtml" />
+    <Content Include="Views\Admin\DeleteUser.cshtml" />
+    <Content Include="Views\Admin\EditUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -623,11 +651,7 @@
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Content\image\" />
-
-    <Folder Include="Views\Account\" />
-
     <Folder Include="Views\Default\" />
-
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.SecurityToken.3.7.100.14\analyzers\dotnet\cs\AWSSDK.SecurityToken.CodeAnalysis.dll" />

@@ -36,7 +36,7 @@ namespace MongoWeb.Models
         public string Role { get; set; } // Vai trò của người dùng
 
         [BsonElement("address")]
-        public Address Address { get; set; } // Địa chỉ của người dùng
+        public string Address { get; set; } // Địa chỉ của người dùng
 
         [BsonElement("date_registered")]
         public DateTime DateRegistered { get; set; } // Ngày đăng ký
@@ -51,20 +51,20 @@ namespace MongoWeb.Models
         public bool Active { get; set; } // Trạng thái hoạt động
     }
 
-    public class Address
-    {
-        [BsonElement("street")]
-        public string Street { get; set; } // Đường
+    //public class Address
+    //{
+    //    [BsonElement("street")]
+    //    public string Street { get; set; } // Đường
 
-        [BsonElement("city")]
-        public string City { get; set; } // Thành phố
+    //    [BsonElement("city")]
+    //    public string City { get; set; } // Thành phố
 
-        [BsonElement("country")]
-        public string Country { get; set; } // Quốc gia
+    //    [BsonElement("country")]
+    //    public string Country { get; set; } // Quốc gia
 
-        [BsonElement("zip_code")]
-        public string ZipCode { get; set; } // Mã bưu chính
-    }
+    //    [BsonElement("zip_code")]
+    //    public string ZipCode { get; set; } // Mã bưu chính
+    //}
 
     public class OrderSummary
     {

@@ -39,7 +39,7 @@ namespace MongoWeb.Models
         [BsonElement("countInstock")]
         public int CountInStock { get; set; }
     }
-    
+
     public class Review
     {
         [BsonElement("user")]
